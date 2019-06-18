@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   justify-content: center;
-
-  margin-top: 50px;
+  /* margin-top: 50px; */
+  flex-wrap: wrap;
 `;
 
 export const Repository = styled.div`
@@ -14,7 +14,7 @@ export const Repository = styled.div`
 
   display: flex;
   flex-direction: column;
-  margin: 0 10px;
+  margin: 25px 10px;
 
   header {
     padding: 30px;

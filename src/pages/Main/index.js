@@ -28,19 +28,31 @@ export default class Main extends Component {
         `/repos/${this.state.repositoryInput}`
       );
 
-      this.state.repositories.map(item => {
-        if (item.id === repository.id) {
-          throw "alreadyExist";
-        }
-      });
+      if (this.state.repositories) {
+        this.state.repositories.map(item => {
+          if (item.id === repository.id) {
+            throw "alreadyExist";
+          }
+        });
+      }
 
       repository.lastCommit = moment(repository.pushed_at).fromNow();
 
-      this.setState({
-        repositoryInput: "",
-        repositories: [...this.state.repositories, repository],
-        repositoryError: false
-      });
+      console.log(repository);
+
+      if (this.state.repositories) {
+        this.setState({
+          repositoryInput: "",
+          repositories: [...this.state.repositories, repository],
+          repositoryError: false
+        });
+      } else {
+        this.setState({
+          repositoryInput: "",
+          repositories: [repository],
+          repositoryError: false
+        });
+      }
     } catch (err) {
       console.log(err);
       this.setState({ repositoryError: true });

@@ -8,7 +8,7 @@ export const Container = styled.div`
 `;
 
 export const Form = styled.form`
-  margin-top: 20px;
+  margin: 25px auto;
   width: 100%;
   max-width: 400px;
 
